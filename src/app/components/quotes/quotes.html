@@ -1,1 +1,45 @@
-<p>quotes works!</p>
+<div class="container mt-4">
+  <h2>Quotes</h2>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Add Quote</h5>
+      <div class="row g-2">
+        <div class="col-md-10">
+          <input type="text" class="form-control" placeholder="Your favourite quote" [(ngModel)]="newQuote.favouriteQuote" />
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary w-100" (click)="createQuote()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Quote</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (quote of quotes; track quote.quoteId) {
+        <tr>
+          @if (editingQuote?.quoteId === quote.quoteId) {
+            <td><input class="form-control" [(ngModel)]="editingQuote.favouriteQuote" /></td>
+            <td>
+              <button class="btn btn-success btn-sm me-1" (click)="saveEdit()">Save</button>
+              <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">Cancel</button>
+            </td>
+          } @else {
+            <td>{{ quote.favouriteQuote }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-1" (click)="startEdit(quote)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteQuote(quote.quoteId)">Delete</button>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

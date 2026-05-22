@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <h2>Books</h2>
+
+  <!-- Add book form -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Add Book</h5>
+      <div class="row g-2">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Title" [(ngModel)]="newBook.bookName" />
+        </div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Author" [(ngModel)]="newBook.author" />
+        </div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Genre" [(ngModel)]="newBook.genre" />
+        </div>
+        <div class="col-md-2">
+          <input type="date" class="form-control" [(ngModel)]="newBook.releaseDate" />
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-primary w-100" (click)="createBook()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Books table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Release Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (book of books; track book.bookId) {
+        <tr>
+          @if (editingBook?.bookId === book.bookId) {
+            <td><input class="form-control" [(ngModel)]="editingBook.bookName" /></td>
+            <td><input class="form-control" [(ngModel)]="editingBook.author" /></td>
+            <td><input class="form-control" [(ngModel)]="editingBook.genre" /></td>
+            <td><input class="form-control" type="date" [(ngModel)]="editingBook.releaseDate" /></td>
+            <td>
+              <button class="btn btn-success btn-sm me-1" (click)="saveEdit()">Save</button>
+              <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">Cancel</button>
+            </td>
+          } @else {
+            <td>{{ book.bookName }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.releaseDate }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-1" (click)="startEdit(book)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteBook(book.bookId)">Delete</button>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

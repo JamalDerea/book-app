@@ -2,10 +2,14 @@
   <div class="container">
     <a class="navbar-brand" routerLink="/books">Book App</a>
     <div class="navbar-nav ms-auto">
-      <a class="nav-link" routerLink="/books">Books</a>
-      <a class="nav-link" routerLink="/quotes">Quotes</a>
-      <a class="nav-link" routerLink="/login">Login</a>
-      <a class="nav-link" routerLink="/register">Register</a>
+      @if (isLoggedIn()) {
+        <a class="nav-link" routerLink="/books">Books</a>
+        <a class="nav-link" routerLink="/quotes">Quotes</a>
+        <button class="btn btn-outline-light btn-sm ms-2" (click)="logout()">Logout</button>
+      } @else {
+        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/register">Register</a>
+      }
     </div>
   </div>
 </nav>
