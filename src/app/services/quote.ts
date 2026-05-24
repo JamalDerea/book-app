@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class QuoteService {
-  private apiUrl = 'https://localhost:7008/api/quote';
+  private apiUrl = 'https://bookapi-jamal-ccd0brc4cygxfge6.germanywestcentral-01.azurewebsites.net/api/quote';
 
   constructor(private http: HttpClient) {}
 

@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:7008/api/user';
+  private apiUrl = 'https://bookapi-jamal-ccd0brc4cygxfge6.germanywestcentral-01.azurewebsites.net/api/user';
 
   constructor(private http: HttpClient) {}
 
