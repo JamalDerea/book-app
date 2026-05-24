@@ -1,59 +1,47 @@
-# BookApp
+# Book App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.26.
+A full-stack web application built as part of a technical assessment for a LIA internship. The goal was to build a responsive CRUD application with authentication from scratch using Angular 20 and .NET 9.
 
-## Development server
+## Live Demo
+https://book-app-jamal.netlify.app
 
-To start a local development server, run:
+## Backend Repo
+https://github.com/JamalDerea/BookApp
 
-```bash
-ng serve
-```
+## What I Built
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A working book and quote manager where users can register, log in and manage their own data. Everything is connected – the Angular frontend talks to a .NET API which reads and writes to a SQL Server database hosted on Azure.
 
-## Code scaffolding
+## Tech Stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**Frontend**
+- Angular 20
+- TypeScript
+- Bootstrap 5
+- Font Awesome
 
-```bash
-ng generate component component-name
-```
+**Backend**
+- .NET 9 / C# Web API
+- Entity Framework Core (Code First)
+- SQL Server
+- JWT Authentication
+- BCrypt password hashing
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+**Deployment**
+- Frontend: Netlify
+- Backend: Azure App Service
+- Database: Azure SQL Database
 
-```bash
-ng generate --help
-```
+## Features
+- User registration and login
+- JWT token stored in localStorage and sent with every request
+- HTTP interceptor that automatically attaches the token to API calls
+- Route guards – unauthenticated users are redirected to login
+- Full CRUD for books (title, author, genre, release date)
+- Full CRUD for quotes (linked to the logged in user)
+- Responsive design – works on mobile, tablet and desktop
+- Navbar that updates based on login state
 
-## Building
+## What I Learned
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+I had no prior experience with Angular before this project. I learned how Angular's component structure works, how to set up routing and route guards, how services and dependency injection work, and how to handle JWT authentication on the frontend with an HTTP interceptor. It was a steep learning curve but I got it working end to end. From a blank project to a deployed fullstack application.
