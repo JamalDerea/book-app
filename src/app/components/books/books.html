@@ -1,7 +1,6 @@
 <div class="container mt-4">
   <h2>Books</h2>
 
-  <!-- Add book form -->
   <div class="card mb-4">
     <div class="card-body">
       <h5 class="card-title">Add Book</h5>
@@ -19,13 +18,14 @@
           <input type="date" class="form-control" [(ngModel)]="newBook.releaseDate" />
         </div>
         <div class="col-md-1">
-          <button class="btn btn-primary w-100" (click)="createBook()">Add</button>
+          <button class="btn btn-primary w-100" (click)="createBook()">
+            <i class="fas fa-plus"></i>
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Books table -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -45,8 +45,12 @@
             <td><input class="form-control" [(ngModel)]="editingBook.genre" /></td>
             <td><input class="form-control" type="date" [(ngModel)]="editingBook.releaseDate" /></td>
             <td>
-              <button class="btn btn-success btn-sm me-1" (click)="saveEdit()">Save</button>
-              <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">Cancel</button>
+              <button class="btn btn-success btn-sm me-1" (click)="saveEdit()">
+                <i class="fas fa-check"></i> Save
+              </button>
+              <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">
+                <i class="fas fa-times"></i> Cancel
+              </button>
             </td>
           } @else {
             <td>{{ book.bookName }}</td>
@@ -54,8 +58,12 @@
             <td>{{ book.genre }}</td>
             <td>{{ book.releaseDate }}</td>
             <td>
-              <button class="btn btn-warning btn-sm me-1" (click)="startEdit(book)">Edit</button>
-              <button class="btn btn-danger btn-sm" (click)="deleteBook(book.bookId)">Delete</button>
+              <button class="btn btn-warning btn-sm me-1" (click)="startEdit(book)">
+                <i class="fas fa-pen"></i> Edit
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteBook(book.bookId)">
+                <i class="fas fa-trash"></i> Delete
+              </button>
             </td>
           }
         </tr>
