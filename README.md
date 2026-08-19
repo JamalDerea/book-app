@@ -1,7 +1,6 @@
 # Book App
 
-A full-stack web application built as part of a technical assessment for a LIA internship. The goal was to build a responsive CRUD application with authentication from scratch using Angular 20 and .NET 9.
-
+A full-stack web application for managing books and personal quote collections. Each user registers, logs in and only sees their own data. The Angular 20 frontend talks to a .NET 9 Web API secured with JWT, which reads and writes to a SQL Server database hosted on Azure. Built to practise authentication, layered API design and deployment across two hosting platforms.
 ## Live Demo
 https://book-app-jamal.netlify.app
 
